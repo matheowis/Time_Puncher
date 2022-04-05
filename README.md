@@ -1,16 +1,15 @@
-# time_puncher
+# Time_Puncher
 
-A new Flutter project.
+Flutter project to monitor my work time, every day i have to scan my work card when entering office and leaving.
 
-## Getting Started
+Its WIP so nothing works yet!
 
-This project is a starting point for a Flutter application.
+## My problem
 
-A few resources to get you started if this is your first Flutter project:
+I can't access personel data to manage my hours, so I don't know if I can leave earlier or have to stay longer.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Heres the solution, the app will track my location and save time stamps at the gate, where i scan my card.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I will also add some stats to check out.
+
+also will allow tracking multiple places.
