@@ -17,6 +17,7 @@ class _MainPageState extends State<MainPage> {
   Coord target = Coord(0, 0);
   Coord current = Coord(0, 0);
   double closest = double.infinity;
+  String time = 'none';
 
   @override
   void initState() {
@@ -33,6 +34,7 @@ class _MainPageState extends State<MainPage> {
       print('new location');
       setState(() {
         current = Coord(latitude, longitude);
+        time = DateTime.now().toIso8601String();
         if (distance < closest) {
           closest = distance;
         }
@@ -105,6 +107,7 @@ class _MainPageState extends State<MainPage> {
                     [
                       'latitude = ${target.latitude}',
                       'longitude = ${target.longitude}',
+                      'updated = $time'
                       // 'distance = ${target.distanceTo(current).toStringAsFixed(2)}m'
                     ].join('\n'),
                   ),
