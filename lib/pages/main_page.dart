@@ -105,8 +105,8 @@ class _MainPageState extends State<MainPage> {
                   padding: const EdgeInsets.all(12),
                   child: Text(
                     [
-                      'latitude = ${target.latitude}',
-                      'longitude = ${target.longitude}',
+                      'latitude = ${current.latitude}',
+                      'longitude = ${current.longitude}',
                       'updated = $time'
                       // 'distance = ${target.distanceTo(current).toStringAsFixed(2)}m'
                     ].join('\n'),
