@@ -18,6 +18,7 @@ class _MainPageState extends State<MainPage> {
   Coord current = Coord(0, 0);
   double closest = double.infinity;
   String time = 'none';
+  int listenCounter = 0;
 
   @override
   void initState() {
@@ -35,9 +36,10 @@ class _MainPageState extends State<MainPage> {
       setState(() {
         current = Coord(latitude, longitude);
         time = DateTime.now().toIso8601String();
-        if (distance < closest) {
-          closest = distance;
-        }
+        listenCounter++;
+        //if (distance < closest) {
+        closest = distance;
+        //}
       });
     });
   }
@@ -78,7 +80,7 @@ class _MainPageState extends State<MainPage> {
               ),
               child: Center(
                   child: Text(
-                'DISTANCE\n$closest',
+                'DISTANCE\n${closest.toStringAsFixed(2)}m',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.grey[50],
@@ -107,7 +109,7 @@ class _MainPageState extends State<MainPage> {
                     [
                       'latitude = ${current.latitude}',
                       'longitude = ${current.longitude}',
-                      'updated = $time'
+                      'updated = ${time}'
                       // 'distance = ${target.distanceTo(current).toStringAsFixed(2)}m'
                     ].join('\n'),
                   ),
