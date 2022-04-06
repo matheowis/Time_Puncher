@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
 
       double distance = target.distanceTo(current);
       print('new location');
-      if (listenCounter == 10) {
+      if (listenCounter == 5) {
         print('do it');
         const AndroidNotificationDetails androidPlatformChannelSpecifics =
             AndroidNotificationDetails('your channel id', 'your channel name',

@@ -4,9 +4,11 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import './globals.dart' as globals;
 
 void main() async {
+  // it has to be here if i want to initilize notifications
+  WidgetsFlutterBinding.ensureInitialized();
   // FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   //     FlutterLocalNotificationsPlugin();
-// initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+//initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('app_icon');
   final IOSInitializationSettings initializationSettingsIOS =
@@ -19,18 +21,8 @@ void main() async {
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
       macOS: initializationSettingsMacOS);
-  await globals.flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+  globals.flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (s) => print('flutterLocalNotificationsPlugin:$s'));
-
-  // final bool? result = await flutterLocalNotificationsPlugin
-  //   .resolvePlatformSpecificImplementation<
-  //       IOSFlutterLocalNotificationsPlugin>()
-  //   ?.requestPermissions(
-  //   alert: true,
-  //   badge: true,
-  //   sound: true,
-  //   );
 
   runApp(const MyApp());
 }
