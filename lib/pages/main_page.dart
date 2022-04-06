@@ -109,7 +109,8 @@ class _MainPageState extends State<MainPage> {
                     [
                       'latitude = ${current.latitude}',
                       'longitude = ${current.longitude}',
-                      'updated = ${time}'
+                      'updated = ${time}',
+                      'listerCount = $listenCounter'
                       // 'distance = ${target.distanceTo(current).toStringAsFixed(2)}m'
                     ].join('\n'),
                   ),
