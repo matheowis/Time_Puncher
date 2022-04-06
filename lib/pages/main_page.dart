@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:location/location.dart';
 import 'package:time_puncher/buttons/app_button.dart';
 import 'package:time_puncher/classes/coord.dart';
+import '../globals.dart' as globals;
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -33,6 +35,20 @@ class _MainPageState extends State<MainPage> {
 
       double distance = target.distanceTo(current);
       print('new location');
+      if (listenCounter == 10) {
+        print('do it');
+        const AndroidNotificationDetails androidPlatformChannelSpecifics =
+            AndroidNotificationDetails('your channel id', 'your channel name',
+                channelDescription: 'your channel description',
+                importance: Importance.max,
+                priority: Priority.high,
+                ticker: 'ticker');
+        const NotificationDetails platformChannelSpecifics =
+            NotificationDetails(android: androidPlatformChannelSpecifics);
+        globals.flutterLocalNotificationsPlugin.show(
+            0, 'plain title', 'plain body', platformChannelSpecifics,
+            payload: 'item x');
+      }
       setState(() {
         current = Coord(latitude, longitude);
         time = DateTime.now().toIso8601String();
