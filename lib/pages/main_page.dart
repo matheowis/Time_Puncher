@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:location/location.dart';
 import 'package:time_puncher/buttons/app_button.dart';
 import 'package:time_puncher/classes/coord.dart';
+import 'package:time_puncher/dialogs/pop_map_dialog.dart';
 import '../globals.dart' as globals;
 
 class MainPage extends StatefulWidget {
@@ -61,6 +62,9 @@ class _MainPageState extends State<MainPage> {
   }
 
   void handleClick() async {
+    print('popDialog');
+    popMapDialog(context);
+    return;
     var currentLoc = await location.getLocation();
     print(
         'latitude = ${currentLoc.latitude}, longitude = ${currentLoc.longitude}');
